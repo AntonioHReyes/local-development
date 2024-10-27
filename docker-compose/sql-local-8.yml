@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8_local
+    environment:
+      MYSQL_ROOT_PASSWORD: z*46SVtr
+      MYSQL_DATABASE: test_lab
+    ports:
+      - "2801:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mysql_network
+
+volumes:
+  mysql_data:
+
+networks:
+  mysql_network:
+    driver: bridge
