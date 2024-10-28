@@ -1,0 +1,16 @@
+services:
+  tomcat:
+    image: tomcat:9.0
+    container_name: tomcat9_container
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../tomcat9webapps:/usr/local/tomcat/webapps
+    environment:
+      - "CATALINA_OPTS=-Xms512m -Xmx1024m"
+    networks:
+      - tomcat9_network
+
+networks:
+  tomcat9_network:
+    driver: bridge

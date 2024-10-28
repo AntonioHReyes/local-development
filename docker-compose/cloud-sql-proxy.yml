@@ -1,0 +1,6 @@
+services:
+  cloudsql-proxy:
+    image: us.gcr.io/socketavl/cloudsql-proxy-dev:latest
+    ports:
+      - "6432:5432"
+    restart: unless-stopped

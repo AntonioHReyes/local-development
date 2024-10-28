@@ -1,0 +1,33 @@
+services:
+  php-apache:
+    image: php:7.4-apache
+    container_name: lamp_php_apache_container
+    volumes:
+      - ../htdocs:/var/www/html   # Montar la carpeta htdocs para tus proyectos
+    ports:
+      - "8080:80"   # Exponer el puerto 80 del contenedor al 8080 del host
+    networks:
+      - lamp_network
+    depends_on:
+      - db
+    command: bash -c "docker-php-ext-install mysqli && apache2-foreground"
+
+  db:
+    image: mysql:8.0
+    container_name: lamp_mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: test1234
+      MYSQL_DATABASE: test_db
+    volumes:
+      - lamp_mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - lamp_network
+
+volumes:
+  lamp_mysql_data:   # Volumen con nombre único para evitar conflictos
+
+networks:
+  lamp_network:
+    driver: bridge

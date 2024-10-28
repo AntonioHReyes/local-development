@@ -10,11 +10,11 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - mysql_network
+      - mysql8_network
 
 volumes:
-  mysql_data:
+  mysql8_data:
 
 networks:
-  mysql_network:
+  mysql8_network:
     driver: bridge

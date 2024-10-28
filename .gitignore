@@ -1,0 +1,38 @@
+# Ignorar archivos de macOS
+.DS_Store
+
+# Ignorar el directorio .git interno
+.git/
+
+# Ignorar archivos temporales de sistema
+Thumbs.db
+
+# Ignorar carpetas de log y archivos temporales
+logs/
+*.log
+
+# Ignorar las carpetas generadas por Docker cuando se levanta el servicio
+tomcat/webapps/*
+!tomcat/webapps/migala.war
+
+# Ignorar la carpeta descomprimida de WAR generada por Tomcat
+tomcat9webapps/*
+!tomcat9webapps/migala.war
+
+# Ignorar configuraciones y backups de MySQL (si las hay)
+mysql_data/
+db_backups/
+
+# Ignorar archivos generados de compilación (si tienes algún proyecto con builds)
+build/
+dist/
+
+# Ignorar el archivo docker-compose.override.yml (si tienes archivos personalizados que no deben subirse)
+docker-compose.override.yml
+
+# Ignorar configuraciones específicas de IDE (opcional)
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+.vscode/
