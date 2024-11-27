@@ -1,0 +1,11 @@
+#docker compose run --rm youtube-downloader
+services:
+  youtube-downloader:
+    build:
+      context: .  # Construir desde el Dockerfile en el directorio actual
+    container_name: yt_downloader
+    volumes:
+      - ./downloads:/downloads  # Carpeta local vinculada al contenedor
+    entrypoint: ["sh", "-c"]  # Usa shell para manejar variables correctamente
+    command: >
+      "yt-dlp 'https://www.youtube.com/watch?v=y9AafU18tU8' --output '/downloads/%(title)s.%(ext)s'"

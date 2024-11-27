@@ -36,3 +36,5 @@ docker-compose.override.yml
 *.sublime-project
 *.sublime-workspace
 .vscode/
+
+docker-compose/yt-downloader/downloads/
